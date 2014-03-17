@@ -61,10 +61,11 @@ extern "C" {
 #include <efi.h>
 #include <stdarg.h>
 #include <wchar.h>
-#include <sys\types.h>
-#include <sys\syslimits.h>
-#include <sys\time.h>
-#include <sys\stat.h>
+#include <sys/types.h>
+#include <sys/syslimits.h>
+#include <sys/time.h>
+#include <sys/stat.h>
+#include <sys/cdefs.h>
 
 /*
  *  Globals exported to application

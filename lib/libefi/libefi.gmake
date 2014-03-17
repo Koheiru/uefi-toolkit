@@ -89,7 +89,7 @@ endif
 
 ifeq ($(EFI_BUILD_ARCH), "amd64")
 
-OBJECTS = $(OBJECTS) \
+EFI_OBJS += \
     $(BUILD_DIR)/$(EFI_BUILD_ARCH)/initplat.o \
     $(BUILD_DIR)/$(EFI_BUILD_ARCH)/math.o \
 

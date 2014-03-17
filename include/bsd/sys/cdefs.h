@@ -131,7 +131,7 @@
 #define __pure2		__attribute__((__const__))
 #define __unused
 #endif
-#if __GNUC__ == 2 && __GNUC_MINOR__ >= 7
+#if __GNUC__ > 2 
 #define __dead2		__attribute__((__noreturn__))
 #define __pure2		__attribute__((__const__))
 #define __unused	__attribute__((__unused__))
