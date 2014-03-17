@@ -208,7 +208,7 @@ typedef EFI_STATUS
 
 #define EFI_BIS_PROTOCOL_REVISION 0x00010000
 
-typedef struct  _EFI_BIS_PROTOCOL
+struct  _EFI_BIS_PROTOCOL
 {
     //member vars
     UINT64           Revision;
@@ -224,7 +224,7 @@ typedef struct  _EFI_BIS_PROTOCOL
     EFI_BIS_UPDATE_BOOT_OBJECT_AUTHORIZATION            UpdateBootObjectAuthorization;
     EFI_BIS_VERIFY_BOOT_OBJECT                          VerifyBootObject;
     EFI_BIS_VERIFY_OBJECT_WITH_CREDENTIAL               VerifyObjectWithCredential;
-}   EFI_BIS_PROTOCOL;
+};
 
 extern EFI_GUID BisProtocol;
 

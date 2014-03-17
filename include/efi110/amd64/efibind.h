@@ -180,7 +180,7 @@ typedef uint64_t   UINTN;
   #define EFI_INTERFACE_DECL(x)
 #else
   #define EFI_FORWARD_DECLARATION(x) typedef struct _##x x
-  #define EFI_INTERFACE_DECL(x) typedef struct x
+  #define EFI_INTERFACE_DECL(x) struct x
 #endif
 
 //
@@ -203,5 +203,5 @@ typedef uint64_t   UINTN;
 #ifdef NO_INTERFACE_DECL
 #define INTERFACE_DECL(x)
 #else
-#define INTERFACE_DECL(x) typedef struct x
+#define INTERFACE_DECL(x) struct x
 #endif

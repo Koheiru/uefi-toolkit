@@ -198,11 +198,11 @@ UGA_STATUS
 
 --*/
 
-typedef struct _EFI_UGA_IO_PROTOCOL { 
+struct _EFI_UGA_IO_PROTOCOL { 
   EFI_UGA_IO_PROTOCOL_CREATE_DEVICE  CreateDevice;
   EFI_UGA_IO_PROTOCOL_DELETE_DEVICE  DeleteDevice;
   PUGA_FW_SERVICE_DISPATCH           DispatchService;
-} EFI_UGA_IO_PROTOCOL;
+};
 
 extern EFI_GUID UgaIoProtocol;
 

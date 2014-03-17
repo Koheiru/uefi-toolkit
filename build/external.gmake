@@ -45,17 +45,12 @@ ifndef EFI_MODULE
     $(error EFI_MODILE not set)
 endif
 
+
 #
 # Include external target
 #
 
 include $(EFI_MODULE)
-
-#
-# Paths
-#
-
-EFI_ROOT_DIR = $(shell pwd)
 
 #
 # Toolchain 
@@ -69,10 +64,20 @@ MAKE    = make
 FWIMAGE = fwimage
 
 #
+# Include paths
+# Separated from compiler flags for easier override by clients
+#
+
+CC_INCLUDE += \
+	-I$(EFI_TOOLKIT_DIR)/include/efi110 \
+	-I$(EFI_TOOLKIT_DIR)/include/efi110/protocol \
+	-I$(EFI_TOOLKIT_DIR)/include/efi110/$(EFI_BUILD_ARCH) \
+
+#
 # Compiler flags
 #
 
-CC_FLAGS += -fshort-wchar -fno-strict-aliasing -Wall -mno-red-zone -mno-stack-arg-probe -DEFIX64 -nostdinc -nostdlib
+CC_FLAGS += -std=c99 -fshort-wchar -fno-strict-aliasing -Wall -Werror -mno-red-zone -mno-stack-arg-probe -DEFIX64 -nostdinc -nostdlib
 
 ifdef EFI_DEBUG
     CC_FLAGS = -pg -O0 -DEFI_DEBUG
@@ -97,7 +102,8 @@ LIB_FLAGS += -cr
 #
 
 %.o:%.c
-	$(CC) $(CC_FLAGS) -c $< -o $@
+	@echo "CC $<"
+	@$(CC) $(CC_FLAGS) $(CC_INCLUDE) -c $< -o $@
 
 #
 # Targets

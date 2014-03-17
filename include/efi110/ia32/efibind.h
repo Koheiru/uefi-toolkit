@@ -119,7 +119,7 @@ typedef uint32_t   UINTN;
 #define BAD_POINTER         0xFBFBFBFB
 #define MAX_ADDRESS         0xFFFFFFFF
 
-#define BREAKPOINT()        __asm { int 3 }
+#define BREAKPOINT()        //__asm { int 3 }
 
 //
 // Pointers must be aligned to these address to function
@@ -178,7 +178,7 @@ typedef uint32_t   UINTN;
   #define EFI_INTERFACE_DECL(x)
 #else
   #define EFI_FORWARD_DECLARATION(x) typedef struct _##x x
-  #define EFI_INTERFACE_DECL(x) typedef struct x
+  #define EFI_INTERFACE_DECL(x) struct x
 #endif
 
 #ifdef EFI_NT_EMULATOR
@@ -245,7 +245,7 @@ typedef uint32_t   UINTN;
 #ifdef NO_INTERFACE_DECL
 #define INTERFACE_DECL(x)
 #else
-#define INTERFACE_DECL(x) typedef struct x
+#define INTERFACE_DECL(x) struct x
 #endif
 
 #if _MSC_EXTENSIONS
