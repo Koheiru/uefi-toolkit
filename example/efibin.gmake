@@ -1,0 +1,20 @@
+#
+# Test external module makefile
+#
+
+PWD = $(shell pwd)
+
+EFI_OBJS = test.o
+EFI_BIN_TARGET = test.efi
+EFI_BIN_ENTRY = _TestEfiEntry
+EFI_BIN_SUBSYSTEM = EFI_APPLICATION
+
+all: efibin.gmake
+	echo "Test makefile"
+	make -f $(EFI_TOOLKIT_DIR)/external.gmake EFI_MODULE=$(PWD)/efibin.gmake efibin
+
+clean:
+	rm -rf $(EFI_BIN_TARGET)
+	rm -rf *.o
+
+

@@ -1,0 +1,17 @@
+#
+# Test external module makefile
+#
+
+PWD = $(shell pwd)
+
+EFI_OBJS = test.o
+EFI_LIB_TARGET = test.a
+
+all: efilib.gmake
+	make -f $(EFI_TOOLKIT_DIR)/external.gmake EFI_MODULE=$(PWD)/efilib.gmake efilib
+
+clean:
+	rm -rf $(EFI_LIB_TARGET)
+	rm -rf *.o
+
+
